@@ -1,5 +1,5 @@
 /**
- * FreeDesktopSearch - A Search Engine for your Desktop
+ * FXDesktop - An example application to show JavaFX portal capabilities
  * Copyright (C) 2013 Mirko Sertic
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -10,9 +10,11 @@
  *
  * You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
+
 package de.mirkosertic.portalprototype;
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 
@@ -28,6 +30,9 @@ public class EmbeddedWebServer {
         theWebApp.setContextPath("/");
         theWebApp.setBaseResource(Resource.newClassPathResource("/webapp"));
         theWebApp.setDescriptor("WEB-INF/web.xml");
+        theWebApp.addServlet(new ServletHolder(new ProductServlet()), "/products/*");
+        theWebApp.addServlet(new ServletHolder(new CustomerServlet()), "/customers/*");
+        theWebApp.addServlet(new ServletHolder(new InvoiceServlet()), "/invoices/*");
         theWebApp.setClassLoader(getClass().getClassLoader());
 
         jetty.setHandler(theWebApp);
@@ -51,5 +56,9 @@ public class EmbeddedWebServer {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public String generateUrlFor(String aRelativeUrl) {
+        return "http://127.0.0.1:4711/" + aRelativeUrl;
     }
 }

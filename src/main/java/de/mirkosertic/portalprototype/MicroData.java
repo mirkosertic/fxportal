@@ -12,17 +12,11 @@
  */
 package de.mirkosertic.portalprototype;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
+import org.w3c.dom.Document;
 
-public class DesktopGateway {
+public class MicroData extends MicroDataElement {
 
-    public void openFile(String aFile) {
-        try {
-            Desktop.getDesktop().open(new File(aFile));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public MicroData(Document aDocument) {
+        super(null, aDocument);
     }
 }
