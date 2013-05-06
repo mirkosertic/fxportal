@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" fx:controller="de.mirkosertic.portalprototype.PortalController">
+  <children>
+    <VBox prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Close" fx:id="menuItemClose" />
+              </items>
+            </Menu>
+            <Menu id="" mnemonicParsing="false" style="" text="Actions" fx:id="actions" />
+          </menus>
+        </MenuBar>
+        <WebView fx:id="webView" prefHeight="532.0" VBox.vgrow="ALWAYS" />
+      </children>
+    </VBox>
+  </children>
+  <padding>
+    <Insets top="30.0" />
+  </padding>
+  <stylesheets>
+    <URL value="@userinterface.css" />
+  </stylesheets>
+</AnchorPane>
