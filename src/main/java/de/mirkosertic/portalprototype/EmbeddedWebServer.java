@@ -61,4 +61,12 @@ public class EmbeddedWebServer {
     public String generateUrlFor(String aRelativeUrl) {
         return "http://127.0.0.1:4711/" + aRelativeUrl;
     }
+
+    public String createLinkToCustomer(String aCustomerId) {
+        return "http://127.0.0.1:4711/customers/" + aCustomerId;
+    }
+
+    public String createLinkToProduct(String aProductId) {
+        return "http://127.0.0.1:4711/products/" + aProductId;
+    }
 }

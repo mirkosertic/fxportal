@@ -79,4 +79,12 @@ public class PortalApplication extends Application {
     public String generateUrlFor(String aRelativeUrl) {
         return embeddedWebServer.generateUrlFor(aRelativeUrl);
     }
+
+    public String createLinkToCustomer(String aCustomerId) {
+        return embeddedWebServer.createLinkToCustomer(aCustomerId);
+    }
+
+    public String createLinkToProduct(String aProductId) {
+        return embeddedWebServer.createLinkToProduct(aProductId);
+    }
 }
