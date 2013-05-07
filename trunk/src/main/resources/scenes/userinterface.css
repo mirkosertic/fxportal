@@ -29,3 +29,15 @@
     -fx-background-image: url("storage.png");
     -fx-background-repeat: no-repeat;
 }
+
+.backButton {
+    -fx-background-color: white;
+    -fx-background-image: url("back.png");
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+}
+
+.backButton:hover {
+    -fx-background-image: url("back-hover.png");
+}
