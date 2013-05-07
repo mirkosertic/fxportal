@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.web.WebView;
@@ -42,6 +43,9 @@ public class PortalController implements Initializable {
 
     @FXML
     WebView webView;
+
+    @FXML
+    Button backButton;
 
     private PortalApplication application;
 
@@ -78,10 +82,20 @@ public class PortalController implements Initializable {
     public void initialize(URL aUrl, ResourceBundle aResourceBundle) {
         assert menuItemClose != null;
         assert webView != null;
+        assert backButton != null;
 
         menuItemClose.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent actionEvent) {
                 close();
+            }
+        });
+        backButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent aEvent) {
+                int theIndex = webView.getEngine().getHistory().getCurrentIndex();
+                if (theIndex > 0) {
+                    webView.getEngine().getHistory().go(-1);
+                }
             }
         });
     }

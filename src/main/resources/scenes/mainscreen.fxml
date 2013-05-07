@@ -14,16 +14,25 @@
   <children>
     <VBox prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <MenuBar>
-          <menus>
-            <Menu mnemonicParsing="false" text="File">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Close" fx:id="menuItemClose" />
-              </items>
-            </Menu>
-            <Menu id="" mnemonicParsing="false" style="" text="Actions" fx:id="actions" />
-          </menus>
-        </MenuBar>
+        <HBox alignment="CENTER_LEFT" VBox.vgrow="NEVER">
+          <children>
+            <Button fx:id="backButton" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" styleClass="backButton" HBox.hgrow="NEVER">
+              <HBox.margin>
+                <Insets left="5.0" right="5.0" />
+              </HBox.margin>
+            </Button>
+            <MenuBar HBox.hgrow="ALWAYS">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" fx:id="menuItemClose" />
+                  </items>
+                </Menu>
+                <Menu id="" mnemonicParsing="false" style="" text="Actions" fx:id="actions" />
+              </menus>
+            </MenuBar>
+          </children>
+        </HBox>
         <WebView fx:id="webView" prefHeight="532.0" VBox.vgrow="ALWAYS" />
       </children>
     </VBox>

@@ -5,11 +5,11 @@
     </head>
     <body>
 
-        <ui>
-            <li><a itemscope itemtype="http://mirkosertic.de/fxportal/action" href="products/list">Product Catalog</a></li>
-            <li><a itemscope itemtype="http://mirkosertic.de/fxportal/action" href="customers/list">Customer Management</a></li>
-            <li><a itemscope itemtype="http://mirkosertic.de/fxportal/action" href="invoices/list">Invoice Management</a></li>
-        </ui>
+        <div class="mainmenu">
+            <div class="mainmenuItem"><a itemscope itemtype="http://mirkosertic.de/fxportal/action" href="products/list"><img src="products.png"/>Product Catalog</a></div>
+            <div class="mainmenuItem"><a itemscope itemtype="http://mirkosertic.de/fxportal/action" href="customers/list"><img src="customers.png"/>Customer Management</a></div>
+            <div class="mainmenuItem"><a itemscope itemtype="http://mirkosertic.de/fxportal/action" href="invoices/list"><img src="invoices.png"/>Invoice Management</a></div>
+        </div>
 
     </body>
 </html>

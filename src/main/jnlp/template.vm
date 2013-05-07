@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="6.0+" xmlns:jfx="http://javafx.com" codebase="http://mogwai.sourceforge.net/fxportal" href="$outputFile"
+      version="$explicitTimestampUTC">
+    <information>
+        <title>JavaFXPortal $project.version</title>
+        <vendor>Mirko Sertic</vendor>
+        <homepage href="http://code.google.com/p/fxportal/"/>
+        <shortcut online="false">
+            <desktop/>
+            <menu submenu="FXPortal"/>
+        </shortcut>
+    </information>
+    <resources>
+      <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+    </resources>
+    <update check="timeout" policy="always"/>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <java version="1.7+" max-heap-size="768m"/>
+        $dependencies
+    </resources>
+    <applet-desc width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback" name="FXPortal" >
+      <param name="requiredFXVersion" value="2.2+"/>
+    </applet-desc>
+    <jfx:javafx-desc  width="800" height="600" main-class="$mainClass" name="FXPortal" />
+</jnlp>
