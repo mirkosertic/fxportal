@@ -25,6 +25,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.web.WebView;
 import javafx.stage.Window;
 import netscape.javascript.JSObject;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import java.net.URL;
 import java.util.List;
@@ -87,6 +89,7 @@ public class PortalController implements Initializable {
     private void process(MicroData aMicrodata) {
         actions.getItems().clear();
 
+        // Scan for actions
         List<MicroDataElement> theElements = aMicrodata.items("http://mirkosertic.de/fxportal/action");
         for (MicroDataElement theElement : theElements) {
 
@@ -101,6 +104,31 @@ public class PortalController implements Initializable {
                 }
             });
             actions.getItems().add(theItem);
+        }
+
+        // Scan for ProductIDs and vonvert them to links
+        theElements = aMicrodata.items("http://mirkosertic.de/fxportal/customerid");
+        for (MicroDataElement theElement : theElements) {
+            Node theNode = theElement.getNode();
+            String theId = theElement.getNode().getTextContent();
+
+            Node theParent = theNode.getParentNode();
+            Element theLink = theNode.getOwnerDocument().createElement("a");
+            theLink.setAttribute("href",application.createLinkToCustomer(theId));
+            theLink.appendChild(theNode);
+            theParent.appendChild(theLink);
+        }
+
+        theElements = aMicrodata.items("http://mirkosertic.de/fxportal/productid");
+        for (MicroDataElement theElement : theElements) {
+            Node theNode = theElement.getNode();
+            String theId = theElement.getNode().getTextContent();
+
+            Node theParent = theNode.getParentNode();
+            Element theLink = theNode.getOwnerDocument().createElement("a");
+            theLink.setAttribute("href",application.createLinkToProduct(theId));
+            theLink.appendChild(theNode);
+            theParent.appendChild(theLink);
         }
 
         actions.setDisable(actions.getItems().size() == 0);
